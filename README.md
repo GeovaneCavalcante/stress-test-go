@@ -8,15 +8,14 @@ O `stress-test` é uma ferramenta de linha de comando desenvolvida em Go, utiliz
 Para usar o `stress-test`, você precisa ter instalado em seu sistema:
 
 - **Docker**: Necessário para executar o container onde o `stress-test` opera. A instalação do Docker pode ser realizada seguindo as instruções no [site oficial do Docker](https://docs.docker.com/get-docker/).
-- **Make**: Usado para construir o projeto. A instalação do Make varia dependendo do sistema operacional; consulte a documentação específica para sua plataforma.
 
 ## Instalação
 
 Clone este repositório usando Git:
 
 ```bash
-git clone https://github.com/geovanedeveloper/stress-test.git
-cd stress-test
+git clone https://github.com/geovanedeveloper/stress-test-go.git
+cd stress-test-go
 ```
 
 Construa o projeto com:
