@@ -18,10 +18,10 @@ git clone https://github.com/geovanedeveloper/stress-test-go.git
 cd stress-test-go
 ```
 
-Construa o projeto com:
+Construa a imagem do projeto com:
 
 ```bash
-make
+make docker-build-image 
 ```
 
 Este comando compilará o código fonte e criará um executável dentro de um container Docker.
