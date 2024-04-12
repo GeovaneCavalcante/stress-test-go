@@ -67,7 +67,7 @@ func callHttp(url string) (int, error) {
 
 	req, err := http.Get(url)
 	if err != nil {
-		return 0, err
+		return req.StatusCode, err
 	}
 
 	defer req.Body.Close()
