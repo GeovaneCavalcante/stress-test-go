@@ -44,15 +44,16 @@ func (hS *HttpStresser) StartTest(url string, requestCount, concurrencyCount int
 	duration := time.Since(start)
 
 	fmt.Printf("\n\n############ RESULTS ############\n\n")
-	fmt.Printf("Number of requests: %d\n\n", count.Load())
-	fmt.Printf("Test execution time: %.2f\n\n", duration.Seconds())
+
 	for key, value := range results {
 		if key == 0 {
-			fmt.Printf("Total number of error calls: %d\n\n", value)
+			defer fmt.Printf("Total number of error calls: %d\n\n", value)
 			continue
 		}
 		fmt.Printf("Status %d, total responses: %d\n", key, value)
 	}
+	fmt.Printf("\nTest execution time: %.2f\n\n", duration.Seconds())
+	fmt.Printf("Number of requests: %d\n\n", count.Load())
 
 	return nil
 }
