@@ -47,6 +47,10 @@ func (hS *HttpStresser) StartTest(url string, requestCount, concurrencyCount int
 	fmt.Printf("Number of requests: %d\n\n", count.Load())
 	fmt.Printf("Test execution time: %.2f\n\n", duration.Seconds())
 	for key, value := range results {
+		if key == 0 {
+			fmt.Printf("Total number of error calls: %d\n\n", value)
+			continue
+		}
 		fmt.Printf("Status %d, total responses: %d\n", key, value)
 	}
 
@@ -66,8 +70,12 @@ func createWorkerPool(numberPool int) {
 func callHttp(url string) (int, error) {
 
 	req, err := http.Get(url)
-	if err != nil {
+	if err != nil && req != nil {
 		return req.StatusCode, err
+	}
+
+	if err != nil {
+		return 0, err
 	}
 
 	defer req.Body.Close()
